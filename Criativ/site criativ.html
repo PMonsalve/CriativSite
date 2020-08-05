@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		body, html {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			font-family: myFirstFont;
+			color: #777;
+		}
+
+		/* comportamento do fade */
+		.effade{
+			height: auto;
+		}
+
+		/* comportamento das imagens background */
+		.bgimg{
+			background-position: center;
+			background-repeat: no-repeat;
+			min-height: 100%;
+			background-size: 100%; /* usar valor contain pra mostrar toda a imagem sem cortar nada, usar 100% pra cortar ou usar 100% 100% pra distorcer */
+			background-attachment: fixed;
+			height: 70em;
+		}
+		
+		/* fonte */
+		@font-face {
+   			font-family: myFirstFont;
+   			src: url("Nexa Light.otf");
+		}
+
+		/* texto do popup */
+		h4 {	
+			color: black;
+			background-image: url("bgpopup.png");
+			background-repeat: no-repeat;
+			background-position: center;
+			font-size: 19px;
+		}
+
+		/* caixa dos botões */
+		#caixaBotoes{
+		    right: 1%;
+		    bottom: 2%;
+		    margin: -250px 0 0 0;
+		    position: fixed;
+		}
+
+		/* botões */
+		.items a {
+			display: block;
+			cursor: pointer;
+		 	color: black;
+		 	text-decoration: none;
+		 	font-size: 14px;
+		 	line-height: 2.3;
+		}
+
+		/* popup */
+		.modal {			
+			display: none;
+			position: fixed;
+			z-index: 99;
+			left: 0;
+			right:0;
+			top: 0;
+			bottom:0;
+			overflow: auto;
+			background-color: rgb(0,0,0);
+			background-color: rgba(0,0,0,0.6);
+		}
+		.modal-content {
+
+			background-color: #fefefe;
+			position:fixed;
+			top:20%;
+			bottom:20%;
+			left:0;
+			right:0;
+			margin:auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 850px;
+			height: 410px;
+			display:none;
+			box-sizing:border-box;
+			z-index:100;
+			overflow:auto;
+		}
+		/*Botao x do popup*/		
+		.close {
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+			cursor:pointer;  
+		}
+		.close:hover, .close:focus {
+			color: black;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+
+		</style>
+	</head>
+	<body>
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(intro.png);"></div>
+		</div>
+
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img1.png);"></div>
+		</div>
+
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img2.png);"></div>
+		</div>
+
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img3.png);"></div>
+		</div>
+		
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img4.png);"></div>
+		</div>
+		
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img5.png);"></div>
+		</div>
+		
+		<div style="background-color:white; background: linear-gradient(white,#161A31);padding:1000px 80px;"></div>
+
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img6.png);"></div>
+		</div>
+		
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img7.png);"></div>
+		</div>
+		
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img8.png);"></div>
+		</div>
+		
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img9.png);"></div>
+		</div>
+		
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img10.png);"></div>
+		</div>
+		
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img11.png);"></div>
+		</div>
+		
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img12.png);"></div>
+		</div>
+		
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img13.png);"></div>
+		</div>
+		
+		<div class="effade">
+			<div class="bgimg" style="background-image: url(img14.png);"></div>
+		</div>
+		
+		<div class="bgimg" style="background-image: url(footer.png);"></div>
+		
+
+	<!--BOTÕES-->
+		<div id ="caixaBotoes">
+			<div id="myModal" class="modal">
+			  <div class="modal-content" id="a1"> <span class="close">&#215;</span>
+			    <center><h4><font size="6">inspirado em pessoas reais e histórias reais, incluindo a minha</font><br><br>
+											existe algo fundamentalmente errado em como a maioria de nós encara a criatividade<br>
+											inventamos medos e motivos para não criarmos<br>
+											e quando criamos<br>
+											sempre tem alguém melhor, mais original, mais talentoso<br>
+											nunca é o suficiente<br><br>
+											este trabalho de conclusão de curso propõe uma outra maneira de ver o nosso trabalho<br><br>
+											sai da noia e se diverte</h4>
+			  	</center>
+			  </div>
+			</div>
+			<nav class="items"> 
+				<a href="#a1" class="myBtn">sobre criativ</a> 
+			</nav>
+			<nav class="items">
+				<a onclick="toggleFullScreen()">fullscreen</a>
+			</nav>
+		</div>
+
+
+
+<!---------------------------------------------------------------------------------------------------------------->
+
+
+
+		<!-- efeito de fade nas imagens de background no scoll -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript">            
+            $(function() {                
+                var documentEl = $(document),
+                fade = $('.effade');                                
+                documentEl.on('scroll', function() {
+                    var currScrollPos = documentEl.scrollTop();
+                	fade.each(function() {
+                        var $this = $(this),
+                            elemOffsetTop = $this.offset().top;
+                        if (currScrollPos > elemOffsetTop)
+                        	$this.css('opacity', 1 - (currScrollPos-elemOffsetTop)/800);
+                   	}); 
+                });  
+            });        
+        </script>
+	
+        <!-- fullscreen -->
+        <script>
+			var elem = document.getElementById("myvideo");
+			function toggleFullScreen() {
+				if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
+					(!document.mozFullScreen && !document.webkitIsFullScreen)) {
+				    if (document.documentElement.requestFullScreen) {  
+				    	document.documentElement.requestFullScreen();  
+				    } else if (document.documentElement.mozRequestFullScreen) {  
+				    	document.documentElement.mozRequestFullScreen();  
+				    } else if (document.documentElement.webkitRequestFullScreen) {  
+				    	document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+				    }  
+				} else {  
+				    if (document.cancelFullScreen) {  
+				    	document.cancelFullScreen();  
+				    } else if (document.mozCancelFullScreen) {  
+				    	document.mozCancelFullScreen();  
+				    } else if (document.webkitCancelFullScreen) {  
+				    	document.webkitCancelFullScreen();  
+				    }  
+			  	}  
+			}	
+		</script>
+
+		<!-- popup -->
+		<script type="text/javascript">
+			$(document).on('click','.myBtn',function(){
+				var myTargetModal =  $(this).attr('href');
+				$('#myModal').hide();
+				$('.modal-content').hide();
+				$('#myModal').fadeIn();
+				$(myTargetModal).fadeIn();
+				return false;
+			});
+			$("body" ).on( "click",".close", function() {
+			  	$('#myModal').hide();
+				$('.modal-content').hide();
+			});
+		</script>
+
+	</body>
+</html>
