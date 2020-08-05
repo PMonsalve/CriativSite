@@ -5,4 +5,4 @@ I made the front-end of the site, using effects of parallax to the illustrations
 
 The language of the site is pt-br
 
-Illustrations made by 
+Illustrations made by behance.net/juliana_g
